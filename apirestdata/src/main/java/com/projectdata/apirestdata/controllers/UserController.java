@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.projectdata.apirestdata.model.User;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/users") // localhost:8080/users
 public class UserController {
 
 	
