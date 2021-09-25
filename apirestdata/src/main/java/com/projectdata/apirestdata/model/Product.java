@@ -13,6 +13,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity(name= "product")
 public class Product implements Serializable {
@@ -31,10 +36,17 @@ public class Product implements Serializable {
 	
 	private String imgUrl;
 	
+	
 	@ManyToMany
 	@JoinTable(name = "product_category",joinColumns =@JoinColumn(name= "product_id"),
 	inverseJoinColumns =@JoinColumn(name="category_id"))
 	private Set<Category> categories;
+	
+	
+	@OneToMany(mappedBy="id.product")
+	private Set<OrderItem> items=new HashSet<>();
+	
+	
 	public Product() {
 		super();
 	}
@@ -93,6 +105,16 @@ public class Product implements Serializable {
 
 	public Set<Category> getCategories() {
 		return categories;
+	}
+
+
+	@JsonIgnore
+	public Set<Order> getOrder() {
+		Set<Order> set = new HashSet<>();
+		for(OrderItem x :items) {
+			set.add(x.getOrder());
+		}
+		return set;
 	}
 
 	

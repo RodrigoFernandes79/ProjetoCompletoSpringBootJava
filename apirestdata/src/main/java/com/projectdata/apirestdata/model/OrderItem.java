@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.projectdata.apirestdata.model.pk.OrderItemPK;
 @Entity(name = "order_item")
 public class OrderItem implements Serializable {
@@ -40,11 +41,12 @@ public class OrderItem implements Serializable {
 		
 	}
 	
+	
 	public void setOrder(Order order) {
 		 id.setOrder(order);
 		
 	}
-
+	
 	public Product getProduct() {
 		 return id.getProduct();
 		
