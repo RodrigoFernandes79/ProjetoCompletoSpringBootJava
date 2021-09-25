@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projectdata.apirestdata.model.Order;
+import com.projectdata.apirestdata.model.Payment;
 import com.projectdata.apirestdata.repositories.OrderRepository;
 import com.projectdata.apirestdata.services.OrderService;
 
@@ -28,10 +29,10 @@ public class OrderController {
 	
 	@PostMapping
 	public ResponseEntity<Order> createOrder(@RequestBody Order order) {
+	
 		return ResponseEntity.ok(orderRepository.save(order));
 		
 	}
-	
 	
 	
 	@GetMapping

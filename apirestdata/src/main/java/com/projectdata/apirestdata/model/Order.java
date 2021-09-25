@@ -5,6 +5,7 @@ import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -15,8 +16,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.projectdata.apirestdata.model.enums.OrderStatus;
 
@@ -42,13 +50,19 @@ public class Order implements Serializable {
 	@JsonManagedReference
 	@OneToMany(mappedBy="id.order")
 	private Set<OrderItem> items = new HashSet<>();
+	@JsonManagedReference
+	@OneToOne(mappedBy="order",cascade =CascadeType.ALL)
+	private Payment payment;
 
-	public Order(Long id, Instant date, User client, OrderStatus orderStatus) {
+
+	public Order(Long id, Instant date, User client, OrderStatus orderStatus, Set<OrderItem> items, Payment payment) {
 		super();
 		this.id = id;
 		this.date = date;
 		this.client = client;
 		this.orderStatus = orderStatus;
+		this.items = items;
+		this.payment = payment;
 	}
 
 	public Order() {
@@ -89,6 +103,14 @@ public class Order implements Serializable {
 
 	public Set<OrderItem> getItems() {
 		return items;
+	}
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
 	}
 
 	
