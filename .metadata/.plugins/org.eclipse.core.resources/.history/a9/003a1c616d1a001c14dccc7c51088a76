@@ -1,0 +1,5 @@
+package com.projectdata.apirestdata.model;
+
+public class Product {
+
+}

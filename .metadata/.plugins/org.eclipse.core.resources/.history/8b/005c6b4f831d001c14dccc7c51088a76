@@ -1,0 +1,26 @@
+package com.projectdata.apirestdata.services;
+
+
+import java.util.Optional;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Service;
+
+import com.projectdata.apirestdata.model.OrderItem;
+
+import com.projectdata.apirestdata.repositories.OrderItemRepository;
+
+
+@Service
+public class OrderItemService {
+	@Autowired
+	private OrderItemRepository orderItemRepository;
+
+	public OrderItem findById(long id) {
+		Optional<OrderItem> obj = orderItemRepository.findById(id);
+		return obj.get();
+	}
+
+}

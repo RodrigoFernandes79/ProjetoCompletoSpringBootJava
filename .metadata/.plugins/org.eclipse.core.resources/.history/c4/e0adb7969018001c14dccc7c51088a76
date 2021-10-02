@@ -1,0 +1,10 @@
+#configurações do Banco de Dados teste H2:
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.username=sa
+spring.datasource.password=
+#h2 criado em console e o caminho no navegador: /h2-console
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+#comandos Jpa para mostrar no log de aplicação o sql
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true 

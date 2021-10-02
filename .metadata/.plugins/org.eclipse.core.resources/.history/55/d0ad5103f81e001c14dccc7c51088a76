@@ -1,0 +1,5 @@
+package com.projectdata.apirestdata.exception;
+
+public class PersonNotFoundException {
+
+}

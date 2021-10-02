@@ -1,0 +1,5 @@
+package com.projectdata.apirestdata.model;
+Entity(name="payment")
+public class Payment {
+
+}

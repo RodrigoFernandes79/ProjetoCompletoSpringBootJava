@@ -1,0 +1,4 @@
+#pra rodar Jpa no Banco de Dados h2:
+spring.profiles.active=test
+spring.jpa.open-in-view=true
+
