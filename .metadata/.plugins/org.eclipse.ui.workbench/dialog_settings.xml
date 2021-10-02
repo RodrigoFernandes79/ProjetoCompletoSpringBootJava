@@ -6,4 +6,18 @@
 			<item value="org.eclipse.m2e"/>
 		</list>
 	</section>
+	<section name="org.eclipse.ui.internal.dialogs.WorkbenchEditorsDialog">
+		<item key="allPersp" value="false"/>
+		<item key="sort" value="0"/>
+		<list key="bounds">
+			<item value="158"/>
+			<item value="0"/>
+			<item value="1050"/>
+			<item value="718"/>
+		</list>
+		<list key="columns">
+			<item value="332"/>
+			<item value="666"/>
+		</list>
+	</section>
 </section>

@@ -1,5 +1,0 @@
-package com.projectdata.apirestdata.model.enums;
-
-public enum OrderEnum {
-
-}
